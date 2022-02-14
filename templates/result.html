@@ -1,0 +1,16 @@
+{% extends "web_app.html" -%}
+
+{% block result -%}
+<br>
+
+<div class="row d-flex flex-column align-items-center mt-5 col">
+    <div class="col-6">
+        <h2>Result :</h2>
+        <div>
+            {{ result | safe }}
+        </div>
+
+    </div>
+</div>
+
+{%- endblock result %}
