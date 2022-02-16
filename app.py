@@ -4,6 +4,7 @@ import sys
 from detoxify import Detoxify
 
 app = Flask(__name__)
+toxicity = Detoxify('unbiased')
 
 @app.route('/', methods=['POST','GET'])
 def root():
@@ -11,8 +12,6 @@ def root():
         return render_template('web_app.html')
     if request.method == 'POST':
         data = request.form.get('text_to_send')
-
-        toxicity = Detoxify('original')
         results = toxicity.predict(data)
         
         text_to_render = f'<br><strong>results for : "</strong>{data}"<br><br>'
