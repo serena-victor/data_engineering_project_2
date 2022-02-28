@@ -1,0 +1,4 @@
+detoxify
+flask
+selenium
+unittest2
