@@ -5,10 +5,8 @@ import sys
 from detoxify import Detoxify
 
 app = Flask(__name__)
-metrics = PrometheusMetrics(flask-app)
 toxicity = Detoxify('unbiased')
-
-metrics.info("app_info", "Flask app's metrics", version="1.0.0")
+metrics = PrometheusMetrics(app)
 
 @app.route('/', methods=['POST','GET'])
 def root():
@@ -24,5 +22,6 @@ def root():
             text_to_render += f'<p id="{key}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{key} : {key_percent}%</p>'
 
         return render_template('result.html', toxicity_results = text_to_render)
+
 
 app.run(host='flask-app', port=5000, threaded=True)

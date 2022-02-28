@@ -8,7 +8,7 @@ COPY ./* ./
 
 RUN mkdir templates
 RUN mv result.html web_app.html templates/
-RUN python -m pip install --upgrade pip && pip install --no-cache-dir Flask flask_prometheus_metrics
+RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 #get chrome 
@@ -24,7 +24,5 @@ RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 
 # set display port to avoid crash
 ENV DISPLAY=:99
-
-EXPOSE 5000
 
 CMD ["flask", "run"]
