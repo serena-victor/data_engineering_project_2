@@ -4,7 +4,6 @@ pipeline {
 	stages {
  		stage('Build and start services'){
  			steps {
- 			    bat "git pull"
  				bat 'docker-compose up -d'
  				bat 'powershell -command "Start-Sleep -s 5"'
  			}
