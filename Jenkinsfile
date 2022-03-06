@@ -11,10 +11,8 @@ node {
 	
 	stage('Deploy Docker'){
 		input "Deploy?"
-  		milestone()
-		node{
-        		bat 'docker-compose down --volumes'
-			bat 'docker-compose up -d'
+        	bat 'docker-compose down --volumes'
+		bat 'docker-compose up -d'
 		}
 	}
 	
