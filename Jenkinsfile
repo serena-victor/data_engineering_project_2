@@ -1,6 +1,6 @@
 pipeline {
-	agents any
-	
+	agent any
+
 	stage('Build and start services'){
 		bat 'docker-compose down'
 		bat 'docker-compose up -d'
