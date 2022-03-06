@@ -10,8 +10,8 @@
     <div class="row d-flex flex-column align-items-center mt-5">
         <form class="col-6" action="/" method="POST">
             <label for="dataInput" class="p-2 form-label col-12 text-align-center"> Toxicity analyser input </label>
-            <input class="p-2 form-control" type="text" placeholder="Text to analyse" name="text_to_send" />
-            <input class="p-2 btn btn-primary col-2 mt-3 float-end" type="submit" value="Submit" />
+            <input id="input" class="p-2 form-control" type="text" placeholder="Text to analyse" name="text_to_send" />
+            <input id="button" class="p-2 btn btn-primary col-2 mt-3 float-end" type="submit" value="Submit" />
         </form>
     </div>
     {% block result %}

@@ -17,9 +17,9 @@ def root():
         text_to_render = f'<br><strong>results for : "</strong>{data}"<br><br>'
         for key in results :
             key_percent = (results[key]*100).round(3)
-            text_to_render += f'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{key} : {key_percent}%<br>'
+            text_to_render += f'<p id="{key}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{key} : {key_percent}%</p>'
 
         return render_template('result.html', toxicity_results = text_to_render)
 
 
-app.run(host='localhost', port=5000)
+app.run(host='localhost', port=5000, threaded=True)
