@@ -1,20 +1,33 @@
 pipeline {
 	agent any
 
-	stage('Build and start services'){
-		bat 'docker-compose down'
-		bat 'docker-compose up -d'
-	}
-	
-	stage('Testing'){
-		bat 'docker exec flask-app python app_test.py --verbose'
-	}
+	stages {
+ 		stage('Build and start services'){
+ 			steps {
+ 			    bat "git pull"
+ 				bat 'docker-compose up -d'
+ 				bat 'powershell -command "Start-Sleep -s 5"'
+ 			}
+ 		}
 
-	stage('Deploy'){
-		input "Deploy?"
-		node{
-			echo "Deploying..."
-			echo "Sucess"
+		stage('Testing'){
+			steps {
+				bat 'docker exec flask-app python app_test.py --verbose'
+			}
+		}
+
+		stage('Deploy'){
+			steps {
+				input "Deploy?"
+			}
 		}
 	}
+
+	post {
+		success {
+			echo "Deploying"
+		}
+	}
+
+
 }
