@@ -9,3 +9,4 @@ node {
 	stage('Cleanup Docker'){
 		bat 'docker-compose stop'
 	}
+}
