@@ -10,7 +10,7 @@ node {
 	}
 	stage('Deploy Docker'){
         	bat 'docker-compose down --volumes'
-		bat 'docker-compose up'
+		bat 'docker-compose up -t 300'
 	}
 	stage('Cleanup Docker'){
 		bat 'docker-compose stop'
