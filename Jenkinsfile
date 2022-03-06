@@ -10,10 +10,6 @@ node {
 	}
 	
 	stage('Deploy Docker'){
-		input "Deploy?"
-		node{
-			echo "Deploying..."
-		}
         	bat 'docker-compose down --volumes'
 		bat 'docker-compose up -d'
 	}
