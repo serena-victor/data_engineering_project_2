@@ -1,10 +1,12 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 from prometheus_flask_exporter import PrometheusMetrics
+from prometheus_client import start_http_server
 import sys
 
 from detoxify import Detoxify
 
 app = Flask(__name__)
+
 toxicity = Detoxify('unbiased')
 metrics = PrometheusMetrics(app)
 
@@ -24,4 +26,4 @@ def root():
         return render_template('result.html', toxicity_results = text_to_render)
 
 
-app.run(host='flask-app', port=5000, threaded=True)
+#app.run(host='flask-app', port=5000, threaded=True)

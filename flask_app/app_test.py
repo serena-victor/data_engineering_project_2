@@ -24,7 +24,10 @@ class TestSite(unittest.TestCase):
 
  ## end to end tests
     def test_click_button_is_working(self):
-        driver = webdriver.Chrome()
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        driver = webdriver.Chrome(chrome_options=options)
         driver.get(self.url)
         input = driver.find_element(by='id', value='input')
         button = driver.find_element(by='id', value='button')
@@ -35,7 +38,10 @@ class TestSite(unittest.TestCase):
         self.assertTrue(result)    
 
     def test_submit_is_working(self):
-        driver = webdriver.Chrome()
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        driver = webdriver.Chrome(chrome_options=options)        
         driver.get(self.url)
         input = driver.find_element(by='id', value='input')
         input.send_keys('this is a toxicity test')
