@@ -1,0 +1,16 @@
+{% extends "web_app.html" -%}
+
+{% block result -%}
+<br>
+
+<div class="row d-flex flex-column align-items-center mt-5 col">
+    <div class="col-6">
+        <h2>Toxicity found :</h2>
+        <div id="result">
+            {{ toxicity_results | safe }}
+        </div>
+
+    </div>
+</div>
+
+{%- endblock result %}

@@ -1,0 +1,5 @@
+detoxify
+flask
+selenium
+unittest2
+prometheus-flask-exporter
