@@ -15,6 +15,6 @@ node {
 	}
 	
 	stage('Testing'){
-		bat 'docker exec -it de2_m2_2_pipeline_webapp python app_test.py --verbose'
+		bat 'docker exec -it de2_m2_2_pipeline python app_test.py --verbose'
 	}
 }
