@@ -1,10 +1,10 @@
 node {
-	stage('Get Source') {
-      		git ('https://github.com/serena-victor/data_engineering_project_M2_2/blob/automation/')
-      		if (!fileExists("Dockerfile")) {
-         		error('Dockerfile missing.')
-      		}
-   	}
+	//stage('Get Source') {
+      	//	git ('https://github.com/serena-victor/data_engineering_project_M2_2.git')
+      	//	if (!fileExists("Dockerfile")) {
+        // 		error('Dockerfile missing.')
+      	//	}
+   	//}
 	stage('Build Docker') {
         	bat 'docker-compose build'
 	}
